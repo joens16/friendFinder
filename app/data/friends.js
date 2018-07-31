@@ -1,7 +1,7 @@
 var friends = [{
-    "name":"Emily",
-    "photo":"https://en.wikipedia.org/wiki/Emily_Ratajkowski#/media/File:2_minutes_with_Emily_Ratajkowski_(2).jpg",
-    "scores":[
+    name:"Emily",
+    photo:"https://en.wikipedia.org/wiki/Emily_Ratajkowski#/media/File:2_minutes_with_Emily_Ratajkowski_(2).jpg",
+    scores:[
         5,
         1,
         4,
@@ -159,3 +159,4 @@ var friends = [{
       ]
   }]
   
+  module.exports = friends;

@@ -32,7 +32,7 @@
 
     <h3><strong>Number 1</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q1">
+    <select class="chosen-select" id="question1">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -43,7 +43,7 @@
 
     <h3><strong>Number 2</strong></h3>
     <h4>Question .</h4>
-    <select class="chosen-select" id="q2">
+    <select class="chosen-select" id="question2">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -55,7 +55,7 @@
 
     <h3><strong>Number 3</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q3">
+    <select class="chosen-select" id="question3">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -67,7 +67,7 @@
 
     <h3><strong>Number 4</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q4">
+    <select class="chosen-select" id="question4">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -79,7 +79,7 @@
 
     <h3><strong>Number 5</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q5">
+    <select class="chosen-select" id="question5">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -91,7 +91,7 @@
 
     <h3><strong>Number 6</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q6">
+    <select class="chosen-select" id="question6">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -103,7 +103,7 @@
 
     <h3><strong>Number 7</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q7">
+    <select class="chosen-select" id="question7">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -114,7 +114,7 @@
 
     <h3><strong>Number 8</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q8">
+    <select class="chosen-select" id="question8">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -125,7 +125,7 @@
 
     <h3><strong>Number 9</strong></h3>
     <h4>Question </h4>
-    <select class="chosen-select" id="q9">
+    <select class="chosen-select" id="question9">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -136,7 +136,7 @@
 
     <h3><strong>Number 10</strong></h3>
     <h4>Question .</h4>
-    <select class="chosen-select" id="q10">
+    <select class="chosen-select" id="question10">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -148,7 +148,7 @@
     <br>
     <br>
 
-    <!-- Submit Button -->
+    <!-- Button to Submit -->
     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
      Submit</button>
 
@@ -160,3 +160,52 @@
     </footer>
 
   </div>
+
+  <script type="text/javascript">
+
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+
+      // Here we grab the form elements
+      var newFriend = {
+        Name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val(),]
+      };
+
+      console.log(newFriend);
+
+      // This line is the magic. It"s very similar to the standard ajax function we used.
+      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+      // depending on if a tables is available or not.
+
+      $.post("/api/tables", newReservation,
+        function(data) {
+
+          // If a table is available... tell user they are booked.
+          if (data) {
+            alert("Yay! You are officially booked!");
+          }
+
+          // If a table is available... tell user they on the waiting list.
+          else {
+            alert("Sorry you are on the wait list");
+          }
+
+          // Clear the form when submitting
+          $("#reserve-name").val("");
+          $("#reserve-phone").val("");
+          $("#reserve-email").val("");
+          $("#reserve-unique-id").val("");
+
+        });
+
+    });
+
+</script>
