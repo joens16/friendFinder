@@ -5,23 +5,40 @@
   <meta charset="UTF-8">
   <title>FriendFinder</title>
 
+  <!-- Latest compiled and minified CSS -->
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <script src="https://code.jquery.com/jquery.js"></script>
 
 </head>
 
-<body>
+<body background="assets/images/hearts.png">
 
+  <nav class="navbar navbar-default navbar-fixed-top" id="navbarTop">
+    <div class="container" id="nameAndLogo">
+      <font size="10"> Crush Finder <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </font>
+      <p>...You never know, it could be a famous celebrity.</p>
+    </div>
+  </nav>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
   <div class="container">
 
     <h2>Celebrity Crush Questions</h2>
     <hr>
-
-    <h3><strong>Who are you?</strong></h3>
+    <!-- Form -->
+    <h3>
+      <strong>Who are you?</strong>
+    </h3>
     <h4>Name (Required)</h4>
     <input type="text" id="name" class="form-control" required>
 
@@ -29,9 +46,11 @@
     <input type="text" id="photo" class="form-control" required>
 
     <hr>
-
-    <h3><strong>Number 1</strong></h3>
-    <h4>Question </h4>
+    <!-- Questions -->
+    <h3>
+      <strong>Number 1</strong>
+    </h3>
+    <h4>Are you a morning person? </h4>
     <select class="chosen-select" id="question1">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -41,8 +60,10 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Number 2</strong></h3>
-    <h4>Question .</h4>
+    <h3>
+      <strong>Number 2</strong>
+    </h3>
+    <h4>Do you like pineapple in your pizza?</h4>
     <select class="chosen-select" id="question2">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -53,8 +74,10 @@
     </select>
 
 
-    <h3><strong>Number 3</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 3</strong>
+    </h3>
+    <h4>Do you wear socks with sandals? </h4>
     <select class="chosen-select" id="question3">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -65,8 +88,10 @@
     </select>
 
 
-    <h3><strong>Number 4</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 4</strong>
+    </h3>
+    <h4>Are you a bad driver? </h4>
     <select class="chosen-select" id="question4">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -77,8 +102,10 @@
     </select>
 
 
-    <h3><strong>Number 5</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 5</strong>
+    </h3>
+    <h4>Are you a know-it-all? </h4>
     <select class="chosen-select" id="question5">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -89,8 +116,10 @@
     </select>
 
 
-    <h3><strong>Number 6</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 6</strong>
+    </h3>
+    <h4>Are you annoyed by people easily?</h4>
     <select class="chosen-select" id="question6">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -101,8 +130,10 @@
     </select>
 
 
-    <h3><strong>Number 7</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 7</strong>
+    </h3>
+    <h4>Do you shower on Sundays? </h4>
     <select class="chosen-select" id="question7">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -112,8 +143,10 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Number 8</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 8</strong>
+    </h3>
+    <h4>Do you walk around wearing a Blue-Tooth device on your ear even if you're not on the phone? </h4>
     <select class="chosen-select" id="question8">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -123,8 +156,10 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Number 9</strong></h3>
-    <h4>Question </h4>
+    <h3>
+      <strong>Number 9</strong>
+    </h3>
+    <h4>Do you drive slow in the left lane? </h4>
     <select class="chosen-select" id="question9">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -134,8 +169,10 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <h3><strong>Number 10</strong></h3>
-    <h4>Question .</h4>
+    <h3>
+      <strong>Number 10</strong>
+    </h3>
+    <h4>Do you text while driving even though it is illegal?</h4>
     <select class="chosen-select" id="question10">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -149,63 +186,120 @@
     <br>
 
     <!-- Button to Submit -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-     Submit</button>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      Submit</button>
 
     <hr>
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+        <p>
+          <a href="/api/friends">API Friends List</a> |
+          <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a>
+        </p>
       </div>
     </footer>
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Congratulations!!!</h2>
+      </div>
+      <div class="modal-body">
+        <p>Your match is:</p>
+        <p>Some other text...</p>
+      </div>
+      <div class="modal-footer">
+        <h3>Wish you a lifetime of happiness!!</h3>
+      </div>
+    </div>
 
   </div>
 
+
   <script type="text/javascript">
-
-    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
-    $(".submit").on("click", function(event) {
+    // Code to capture form inputs
+    $(".submit").on("click", function (event) {
       event.preventDefault();
+      validateForm();
 
-      // Here we grab the form elements
-      var newFriend = {
-        Name: $("#name").val().trim(),
-        photo: $("#photo").val().trim(),
-        scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val(),]
-      };
+      // Form Validation
+      function validateForm() {
+        var theForm = $("#name").value + $("#photo").value;
+        if (theForm == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+      }
+    };
 
-      console.log(newFriend);
 
-      // This line is the magic. It"s very similar to the standard ajax function we used.
-      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
+    // Here we grab the form elements
+    var newFriend = {
+      Name: $("#name").val().trim(),
+      photo: $("#photo").val().trim(),
+      scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
+    };
 
-      $.post("/api/tables", newReservation,
-        function(data) {
+    console.log(newFriend);
 
-          // If a table is available... tell user they are booked.
-          if (data) {
-            alert("Yay! You are officially booked!");
-          }
+    // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
 
-          // If a table is available... tell user they on the waiting list.
-          else {
-            alert("Sorry you are on the wait list");
-          }
+    $.post("/api/friends", newFriend,
+      function (data) {
 
-          // Clear the form when submitting
-          $("#reserve-name").val("");
-          $("#reserve-phone").val("");
-          $("#reserve-email").val("");
-          $("#reserve-unique-id").val("");
+        // If a table is available... tell user they are booked.
+        if (data) {
+          alert("Yay! You are officially booked!");
+        }
 
-        });
+        // If a table is available... tell user they on the waiting list.
+        else {
+          alert("Sorry you are on the wait list");
+        }
+
+        // Clear the form when submitting
+        $("#reserve-name").val("");
+        $("#reserve-phone").val("");
+        $("#reserve-email").val("");
+        $("#reserve-unique-id").val("");
+
+      });
 
     });
 
-</script>
+    // Modal Javascript
+    // Get the modal
+    var modal = $('myModal');
+
+    // Get the button that opens the modal
+    var btn = $("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
