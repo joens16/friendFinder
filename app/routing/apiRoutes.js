@@ -17,8 +17,8 @@ module.exports = function (app) {
 
     // console.log(newFriend);
 
-    friends.push(req, body);
-    var match = calcMatch(friends)
+    friends.push(req.body);
+    var match = calcMatch(friends);
     res.json(match);
   });
 
@@ -28,8 +28,8 @@ module.exports = function (app) {
     var positionFriend = 0;
     var index = answersArray.length - 1;
 
-    for (let i = 0; i < answersArray.length; i++) {
-      for (let x = 0; x < answersArray[i].score.length; x++) {
+    for (let i = 0; i < answersArray.length - 1; i++) {
+      for (let x = 0; x < answersArray[i].scores.length; x++) {
         var num1 = parseInt(answersArray[i].scores[x]);
         var num2 = parseInt(answersArray[index].scores[x]);
         var substract = Math.abs(num1 - num2);
@@ -43,5 +43,7 @@ module.exports = function (app) {
     }
     return answersArray[positionFriend];
   }
+
+  console.log("dentro de apiroutes");
 
 };

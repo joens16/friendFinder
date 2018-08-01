@@ -12,9 +12,13 @@ var path = require("path");
 module.exports = function (app) {
   app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
+    console.log("dentro de la primera ruta en html routes");
   });
 
   app.get("/survey", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
+    console.log("dentro de la segunda ruta en html routes");
   });
+
+  console.log("dentro de html routes");
 };
