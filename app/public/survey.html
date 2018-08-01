@@ -5,17 +5,16 @@
   <meta charset="UTF-8">
   <title>FriendFinder</title>
 
-  <!-- Latest compiled and minified CSS -->
-  <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+   <!-- Font Awesome Glyphicons -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+ 
+   <!-- Chosen -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 </head>
 
@@ -23,7 +22,9 @@
 
   <nav class="navbar navbar-default navbar-fixed-top" id="navbarTop">
     <div class="container" id="nameAndLogo">
-      <font size="10"> Crush Finder <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </font>
+      <font size="10"> Crush Finder
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+      </font>
       <p>...You never know, it could be a famous celebrity.</p>
     </div>
   </nav>
@@ -194,8 +195,8 @@
     <footer class="footer">
       <div class="container">
         <p>
-          <a href="/api/friends">API Friends List</a> |
-          <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a>
+          <a class="footerLinks" href="/api/friends">API Friends List</a> |
+          <a class="footerLinks" href="https://github.com/afhaque/friendfinder">GitHub Repo</a>
         </p>
       </div>
     </footer>
@@ -212,7 +213,7 @@
       </div>
       <div class="modal-body">
         <p>Your match is:</p>
-        <p>Some other text...</p>
+        <img src="https://en.wikipedia.org/wiki/Vin_Diesel#/media/File:Vin_Diesel_by_Gage_Skidmore_2.jpg">
       </div>
       <div class="modal-footer">
         <h3>Wish you a lifetime of happiness!!</h3>
@@ -230,49 +231,41 @@
 
       // Form Validation
       function validateForm() {
-        var theForm = $("#name").value + $("#photo").value;
-        if (theForm == "") {
-          alert("Name must be filled out");
-          return false;
-        }
+        var isValid = true;
+        $(".form-control").each(function () {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+
+        $(".chosen-select").each(function () {
+
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
       }
-    };
 
+      if (validateForm()) {
+        // Here we grab the form elements
+        var newFriend = {
+          Name: $("#name").val().trim(),
+          photo: $("#photo").val().trim(),
+          scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
+        };
 
-    // Here we grab the form elements
-    var newFriend = {
-      Name: $("#name").val().trim(),
-      photo: $("#photo").val().trim(),
-      scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
-    };
+        console.log(newFriend);
 
-    console.log(newFriend);
+        $.post("/api/friends", newFriend,
+          function (data) {
+            $("#reserve-email").val("");
+            $("#reserve-unique-id").val("");
 
-    // This line is the magic. It"s very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-
-    $.post("/api/friends", newFriend,
-      function (data) {
-
-        // If a table is available... tell user they are booked.
-        if (data) {
-          alert("Yay! You are officially booked!");
-        }
-
-        // If a table is available... tell user they on the waiting list.
-        else {
-          alert("Sorry you are on the wait list");
-        }
-
-        // Clear the form when submitting
-        $("#reserve-name").val("");
-        $("#reserve-phone").val("");
-        $("#reserve-email").val("");
-        $("#reserve-unique-id").val("");
-
-      });
+          });
+      } else {
+        alert("Sorry you are on the wait list");
+      }
 
     });
 
@@ -281,7 +274,7 @@
     var modal = $('myModal');
 
     // Get the button that opens the modal
-    var btn = $("myBtn");
+    var btn = $("#submit");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];

@@ -1,10 +1,10 @@
-body {
+body, .footerLinks {
     font-family: Arial, Helvetica, sans-serif;
     color: red;
     text-align: center;
 }
 
-#navbarTop, #submit {
+#navbarTop, #submit, #goToSurveyBtn {
     background-color: red;
 }
 
@@ -12,6 +12,10 @@ body {
     text-align: center;
     margin-top: 15px;
     color: white;
+}
+
+#name, #photo, .chosen-select {
+    border-color: red;
 }
 
 /* The Modal (background) */

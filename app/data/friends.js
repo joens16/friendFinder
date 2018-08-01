@@ -85,7 +85,7 @@ var friends = [{
 },
 {
     name: "Hillary",
-    photo: "https://en.wikipedia.org/wiki/File:Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg",
     scores: [2, 1, 1, 2, 3, 3, 4, 4, 5, 5]
 }];
 

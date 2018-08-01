@@ -12,9 +12,23 @@
 
   <script src="https://code.jquery.com/jquery.js"></script>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
-<body>
+<body background="assets/images/hearts.png">
+
+  <nav class="navbar navbar-default navbar-fixed-top" id="navbarTop">
+    <div class="container" id="nameAndLogo">
+      <font size="10"> Crush Finder <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> </font>
+      <p>...You never know, it could be a famous celebrity.</p>
+    </div>
+  </nav>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
 
   <div class="container">
 
@@ -26,14 +40,14 @@
       <br>
 
       <div>
-        <a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4> Go to Survey</h4></button></a>
+        <a href="/survey"><button type="button" class="btn btn-lg btn-primary" id="goToSurveyBtn"><h4> Go to Survey</h4></button></a>
       </div>
 
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/joens16/friend-finder">GitHub Repo</a></p>
+        <p><a class="footerLinks" href="/api/friends">API Friends List</a> | <a class="footerLinks" href="https://github.com/joens16/friend-finder">GitHub Repo</a></p>
       </div>
     </footer>
 
